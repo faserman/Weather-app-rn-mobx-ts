@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { observer } from 'mobx-react';
 import { Search } from 'components/Navbar/Search';
 import { CityName } from 'components/Navbar/CityName';
@@ -7,32 +7,37 @@ import { appStore } from 'store/app';
 
 export const Navbar = observer(props => {
 
-  const { gettingWeather, toggleView } = appStore;
+  const { toggleView } = appStore;
 
   return(
-    <View style={ styles.container }>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={ gettingWeather }
-      ></TouchableOpacity>
-      { toggleView ? <Search /> : <CityName /> }
+    <View>
+      <View style={ styles.title }>
+        <Text style={ styles.text }>WeatherApp</Text>
+      </View>
+      <View style={ styles.navbar }>
+        { toggleView ? <Search /> : <CityName /> }
+      </View>
     </View>
   )
 });
 
 const styles = StyleSheet.create({
-  container: {
-    height: 70,
-    alignItems: 'center',
-    justifyContent: 'flex-end',
+  navbar: {
+    flexDirection: 'row',
+    height: 60,
     backgroundColor: '#1E1E1E',
-    paddingBottom: 10,
   },
-  button: {
-    alignItems: 'center',
-    backgroundColor: '#519ABA',
-    padding: 10,
-    marginTop: 3
+  title: {
+    height: 60,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
+    backgroundColor: '#1E1E1E',
   },
+  text: {
+    fontSize: 20,
+    color: '#FFFFFF',
+    padding: 5,
+  }
+
 })
 

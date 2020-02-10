@@ -18,16 +18,9 @@ class App extends React.Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  input: {
-    width: '90%',
-    padding: 5,
-    borderStyle: 'solid',
-    borderBottomWidth: 2,
-    borderBottomColor: '#49B8EC',
+    backgroundColor: '#252526',
+    /*alignItems: 'center',
+    justifyContent: 'center',*/
   },
 });
 
