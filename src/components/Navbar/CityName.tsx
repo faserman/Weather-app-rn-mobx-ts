@@ -14,7 +14,6 @@ export const CityName = observer(props => {
   }*/
 
   return(
-
     <View>
       <TouchableOpacity 
         style={ styles.cityName }
@@ -24,7 +23,6 @@ export const CityName = observer(props => {
         </TouchableOpacity>
     </View>
   )
-
 })
 
 const styles = StyleSheet.create({

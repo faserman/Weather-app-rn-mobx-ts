@@ -1,10 +1,10 @@
 export interface Result {
   id: string,
-  name: string,
+  cityName: string,
   country: string,
   temp: number,
-  feelLike: number,
-  pressure: number,
+  feelsLike: number,
+  pressureInMmhg: number,
   date: number,
   time: number,
   weatherDescription: string,
@@ -14,3 +14,5 @@ export interface Result {
   sunset: number,
   cod: string,
 }
+
+export type ResultDraft = Omit<Result, 'id'>;
