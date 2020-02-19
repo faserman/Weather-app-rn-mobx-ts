@@ -5,28 +5,22 @@ class AppStore {
   @observable value: string = 'Sibay';
   @observable cityName: string = '';
   @observable toggleView: boolean = false;
-  @observable result: Result = undefined;
+  @observable result: Result | undefined;
   @observable apiKey: string = "546a0e84dacdbf34088457c38f5c4f43";
-  @observable testResult: number = undefined;
 
   @action
   setValue(value: string) {
     this.value = value;
   }
 
-  /*@action
+  @action
   setResult(result: Result) {
     this.result = result
-  }*/
+  }
 
   @action
   setToggleView(mode: boolean) {
     this.toggleView = mode;
-  }
-
-  @action
-  setTestResult(result: number) {
-    this.testResult = result;
   }
 
   @action.bound
@@ -55,8 +49,7 @@ class AppStore {
         sunset: new Date(data.sys.sunset * 1000).toLocaleDateString(),
         cod: data.cod
       };
-      //this.setResult(result);
-      this.setTestResult(result.temp)
+      this.setResult(result);
       console.log(result.temp);
       console.log('===================================================');
       console.log(this.result.temp);
