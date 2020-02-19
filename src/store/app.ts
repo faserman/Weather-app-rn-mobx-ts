@@ -2,30 +2,36 @@ import { observable, action } from 'mobx';
 import { Result } from 'models/app';
 
 class AppStore {
-  @observable value: string = '';
+  @observable value: string = 'Sibay';
   @observable cityName: string = '';
-  @observable toggleView: boolean = true;
-  @observable result: Result[] = [];
+  @observable toggleView: boolean = false;
+  @observable result: Result = undefined;
   @observable apiKey: string = "546a0e84dacdbf34088457c38f5c4f43";
+  @observable testResult: number = undefined;
 
   @action
   setValue(value: string) {
     this.value = value;
   }
 
-  @action
-  setResult(result: any) {
-    this.result = result
-  }
-
   /*@action
+  setResult(result: Result) {
+    this.result = result
+  }*/
+
+  @action
   setToggleView(mode: boolean) {
     this.toggleView = mode;
-  }*/
+  }
+
+  @action
+  setTestResult(result: number) {
+    this.testResult = result;
+  }
 
   @action.bound
   async gettingWeather() {
-    //this.setToggleView(false);
+    this.setToggleView(true);
     const city = this.value;
     const key = this.apiKey;
 
@@ -33,7 +39,7 @@ class AppStore {
       const api_url = await
       fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ city }&appid=${ key }&units=metric`);
       const data = await api_url.json();
-      const result = {
+      const result: Result = {
         id: data.weather[0].id,
         cityName: data.name,
         country: data.sys.country,
@@ -49,14 +55,17 @@ class AppStore {
         sunset: new Date(data.sys.sunset * 1000).toLocaleDateString(),
         cod: data.cod
       };
-      this.setResult(result);
-      console.log(data.main.temp);
-      console.log(this.result);
+      //this.setResult(result);
+      this.setTestResult(result.temp)
+      console.log(result.temp);
+      console.log('===================================================');
+      console.log(this.result.temp);
     } catch (error) {
       console.log(error);
     }
   }
-
 }
+
+//runtype
 
 export const appStore = new AppStore();

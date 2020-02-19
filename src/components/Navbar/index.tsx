@@ -7,7 +7,7 @@ import { appStore } from 'store/app';
 
 export const Navbar = observer(props => {
 
-  const { toggleView } = appStore;
+  // const { toggleView } = appStore;
 
   return(
     <View>
@@ -15,7 +15,7 @@ export const Navbar = observer(props => {
         <Text style={ styles.text }>WeatherApp</Text>
       </View>
       <View style={ styles.navbar }>
-        { toggleView ? <Search /> : <CityName /> }
+        <Search />
       </View>
     </View>
   )

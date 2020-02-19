@@ -5,13 +5,13 @@ export interface Result {
   temp: number,
   feelsLike: number,
   pressureInMmhg: number,
-  date: number,
-  time: number,
+  date: string,
+  time: string,
   weatherDescription: string,
   windSpeed: string,
   windDeg: number,
-  sunrise: number,
-  sunset: number,
+  sunrise: string,
+  sunset: string,
   cod: string,
 }
 
