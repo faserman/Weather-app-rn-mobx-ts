@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#49B8EC',
+    backgroundColor: '#EB6E4B',
     width: '20%',
     marginLeft: 3,
     padding: 1,
@@ -58,9 +58,10 @@ const styles = StyleSheet.create({
     padding: 7,
     borderStyle: 'solid',
     borderBottomWidth: 2,
-    borderBottomColor: '#49B8EC',
-    color: '#FFFFFF',
-    fontSize: 16
+    borderBottomColor: '#EB6E4B',
+    borderRadius: 10,
+    color: '#1E1E1E',
+    fontSize: 25
   },
   image: {
     width: 30,

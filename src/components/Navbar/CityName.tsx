@@ -3,33 +3,47 @@ import { observer } from 'mobx-react';
 import { StyleSheet,
    Text, 
    View, 
-   TouchableOpacity 
+   TouchableOpacity,
   } from 'react-native';
+import { ResultDescription } from 'components/Navbar/ResultDescription';
 import { appStore } from 'store/app';
 
 export const CityName = observer(props => {
 
-  /*const onPress = () => {
+  const { error } = appStore;
+
+  const onPress = () => {
     appStore.setToggleView(true);
-  }*/
+  };
 
   return(
-    <View>
-      <TouchableOpacity 
-        style={ styles.cityName }
-        //onPress={ onPress }
+    <View style={ styles.cityName }>
+      <TouchableOpacity
+        onPress={ onPress }
         >
-          <Text style={ styles.text }></Text>
-        </TouchableOpacity>
+        {(error.length > 0) ? 
+        <Text style={ styles.text }>{ error }</Text> :
+        <ResultDescription />
+      }
+      </TouchableOpacity>
     </View>
   )
 })
 
 const styles = StyleSheet.create({
   cityName: {
-
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderStyle: 'solid',
+    borderBottomWidth: 2,
+    borderBottomColor: '#EB6E4B',
+    borderRadius: 10,
   },
   text: {
-
+    fontSize: 25,
+    color: '#CC0E18',
+    padding: 5,
   },
 })

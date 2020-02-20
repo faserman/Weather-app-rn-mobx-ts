@@ -3,17 +3,18 @@ import { observer } from 'mobx-react';
 import { 
   StyleSheet,
   View,
-  Text, 
+  Text,
+  ActivityIndicator,
 } from 'react-native';
 import { appStore } from 'store/app';
 
 export const TestResult = observer(props => {
 
- const { result } = appStore;
+ const { result, error } = appStore;
 
   return(
     <View style={styles.result}>
-      {(result === undefined) ? null : <Text style={styles.textResult}>{ result.temp }</Text>}
+      <Text style={styles.textResult}>{ error }</Text>
     </View>
   )
 })

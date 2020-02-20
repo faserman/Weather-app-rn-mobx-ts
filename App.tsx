@@ -13,7 +13,6 @@ class App extends React.Component<{}> {
     return (
       <View style={styles.container}>
         <Navbar />
-        {toggleView ? <TestResult /> : null}
       </View>
     );
   }
@@ -22,7 +21,7 @@ class App extends React.Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#252526',
+    backgroundColor: '#FFFFFF',
   },
 });
 

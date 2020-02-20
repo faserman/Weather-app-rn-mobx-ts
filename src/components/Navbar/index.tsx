@@ -7,37 +7,43 @@ import { appStore } from 'store/app';
 
 export const Navbar = observer(props => {
 
-  // const { toggleView } = appStore;
+  const { toggleView } = appStore;
 
   return(
     <View>
       <View style={ styles.title }>
-        <Text style={ styles.text }>WeatherApp</Text>
+        <Text style={ styles.textApp }>
+          <Text style={ styles.textWeather }>Weather</Text>App
+        </Text>
       </View>
       <View style={ styles.navbar }>
-        <Search />
+        {toggleView ? <Search /> : <CityName /> }
       </View>
     </View>
   )
 });
 
 const styles = StyleSheet.create({
+  title: {
+    height: 70,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
+    backgroundColor: '#4E4D4A',
+  },
   navbar: {
     flexDirection: 'row',
     height: 60,
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#FFFFFF',
   },
-  title: {
-    height: 60,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start',
-    backgroundColor: '#1E1E1E',
-  },
-  text: {
-    fontSize: 20,
-    color: '#FFFFFF',
+  textWeather: {
+    fontSize: 25,
+    color: '#EB6E4B',
     padding: 5,
-  }
-
+  },
+  textApp: {
+    fontSize: 23,
+    color: '#F2F3F2',
+    padding: 5,
+  },
 })
 

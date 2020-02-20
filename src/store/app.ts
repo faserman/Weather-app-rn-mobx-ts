@@ -2,11 +2,12 @@ import { observable, action } from 'mobx';
 import { Result } from 'models/app';
 
 class AppStore {
-  @observable value: string = 'Sibay';
+  @observable value: string = '';
   @observable cityName: string = '';
-  @observable toggleView: boolean = false;
+  @observable toggleView: boolean = true;
   @observable result: Result | undefined;
   @observable apiKey: string = "546a0e84dacdbf34088457c38f5c4f43";
+  @observable error: string = '';
 
   @action
   setValue(value: string) {
@@ -19,13 +20,35 @@ class AppStore {
   }
 
   @action
+  setError() {
+    this.error = 'city not found';
+  }
+
+  @action
   setToggleView(mode: boolean) {
     this.toggleView = mode;
   }
 
+  @action
+  clearValue() {
+    this.value = '';
+  }
+
+  @action
+  clearData() {
+    this.result = undefined;
+  }
+
+  @action
+  clearError() {
+    this.error = '';
+  }
+
   @action.bound
   async gettingWeather() {
-    this.setToggleView(true);
+    this.clearData();
+    this.clearError();
+    this.setToggleView(false);
     const city = this.value;
     const key = this.apiKey;
 
@@ -50,11 +73,14 @@ class AppStore {
         cod: data.cod
       };
       this.setResult(result);
+      this.clearValue();
       console.log(result.temp);
       console.log('===================================================');
-      console.log(this.result.temp);
+      console.log(result.cod);
+      console.log(this.result.cod);
     } catch (error) {
-      console.log(error);
+      console.log(this.error);
+      this.setError();
     }
   }
 }
