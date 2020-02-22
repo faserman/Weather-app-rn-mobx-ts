@@ -1,7 +1,5 @@
-export interface Result {
+export interface Weather {
   id: string,
-  cityName: string,
-  country: string,
   temp: number,
   feelsLike: number,
   pressureInMmhg: number,
@@ -15,4 +13,4 @@ export interface Result {
   cod: string,
 }
 
-export type ResultDraft = Omit<Result, 'id'>;
+export type WeatherDraft = Omit<Weather, 'id'>;

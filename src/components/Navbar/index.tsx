@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { observer } from 'mobx-react';
 import { Search } from 'components/Navbar/Search';
-import { CityName } from 'components/Navbar/CityName';
 import { appStore } from 'store/app';
+import ResultDescription from './ResultDescription';
 
 export const Navbar = observer(props => {
 
@@ -17,7 +17,7 @@ export const Navbar = observer(props => {
         </Text>
       </View>
       <View style={ styles.navbar }>
-        {toggleView ? <Search /> : <CityName /> }
+        {toggleView ? <Search /> : <ResultDescription /> }
       </View>
     </View>
   )

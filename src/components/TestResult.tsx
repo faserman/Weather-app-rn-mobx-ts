@@ -10,11 +10,11 @@ import { appStore } from 'store/app';
 
 export const TestResult = observer(props => {
 
- const { result, error } = appStore;
+ const { weather } = appStore;
 
   return(
     <View style={styles.result}>
-      <Text style={styles.textResult}>{ error }</Text>
+      <Text style={styles.textResult}></Text>
     </View>
   )
 })
