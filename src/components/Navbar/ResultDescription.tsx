@@ -9,44 +9,27 @@ import {
   } from 'react-native';
 import { appStore } from 'store/app';
 
-@observer
-class ResultDescription extends React.Component {
+export const ResultDescription = observer(props => {
 
-  state = {
-    toggle: true,
-  };
+  const { isLoding, navbar } = appStore;
 
-  onPress = () => {
+  const onPress = () => {
     appStore.setToggleView(true);
   };
 
-  toggleView = () => {
-    this.setState({
-      toggle: false,
-    })
-  };
-
-  render() {
-
-    const { navbar } = appStore;
-    const { toggle } = this.state;
-
-    setTimeout(this.toggleView, 1500);
-
-    return(
-      <View style={ styles.cityName }>
-        <TouchableOpacity
-          onPress={ this.onPress }
-          >
-          <View>
-            { toggle ? <ActivityIndicator size='small' color='#49B8EC' /> :
-              <Text style={styles.text}>{ navbar }</Text> }
-          </View>
-        </TouchableOpacity>
-      </View>
-    )
-  }
-}
+  return(
+    <View style={ styles.cityName }>
+      <TouchableOpacity
+        onPress={ onPress }
+        >
+        <View>
+          { isLoding ? <ActivityIndicator size='small' color='#49B8EC' /> :
+            <Text style={styles.text}>{ navbar }</Text> }
+        </View>
+      </TouchableOpacity>
+    </View>
+  )
+})
 
   
 const styles = StyleSheet.create({
@@ -66,5 +49,3 @@ const styles = StyleSheet.create({
     padding: 5,
   },
 })
-
-export default ResultDescription; 

@@ -2,8 +2,9 @@ import { observable, action } from 'mobx';
 import { Weather } from 'models/app';
 
 class AppStore {
-  @observable value: string = '';
+  @observable value: string = 'Sibay';
   @observable cityName: string = '';
+  @observable isLoding: boolean = false;
   @observable toggleView: boolean = true;
   @observable weather: Weather | undefined;
   @observable navbar: string = '';
@@ -21,12 +22,17 @@ class AppStore {
 
   @action
   setWeather(weather: Weather) {
-    this.weather = weather
+    this.weather = weather;
+  }
+
+  @action
+  setIsLoding(mode: boolean) {
+    this.isLoding = mode;
   }
 
   @action
   setToggleView(mode: boolean) {
-    this.toggleView = mode;
+    this.toggleView  = mode;
   }
 
   @action
@@ -44,14 +50,16 @@ class AppStore {
   async gettingWeather() {
     this.clearData();
     this.setToggleView(false);
+    this.setIsLoding(true);
     const city = this.value;
     const key = this.apiKey;
 
-    try{
+    try {
       const api_url = await
       fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ city }&appid=${ key }&units=metric`);
       const data = await api_url.json();
-      const weather: Weather = {
+      this.setNavbar(data.name);
+      /*const weather: Weather = {
         id: data.weather[0].id,
         temp: Math.round(data.main.temp),
         feelsLike: Math.round(data.main.feels_like),
@@ -77,11 +85,14 @@ class AppStore {
       console.log(weather.temp);
       console.log('===================================================');
       console.log(weather.cod);
-      console.log(this.weather.cod);
+      console.log(this.weather.cod);*/
     } catch (error) {
       this.setNavbar('city not found');
       console.log(this.navbar);
+      console.log(error.name);
+      console.log(error.massage);
     }
+    this.setIsLoding(false);
   }
 }
 

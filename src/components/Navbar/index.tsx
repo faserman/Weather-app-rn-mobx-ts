@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import { observer } from 'mobx-react';
 import { Search } from 'components/Navbar/Search';
 import { appStore } from 'store/app';
-import ResultDescription from './ResultDescription';
+import { ResultDescription } from './ResultDescription';
 
 export const Navbar = observer(props => {
 
