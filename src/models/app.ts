@@ -1,4 +1,4 @@
-export interface Weather {
+export interface CurrentWeather {
   id: string,
   temp: number,
   feelsLike: number,
@@ -13,4 +13,9 @@ export interface Weather {
   cod: string,
 }
 
-export type WeatherDraft = Omit<Weather, 'id'>;
+export interface DailyForecast {
+  tempMorn: number,
+  tempDay: number,
+  tempEve: number,
+  tempNight: number,
+}

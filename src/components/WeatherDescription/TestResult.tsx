@@ -4,13 +4,11 @@ import {
   StyleSheet,
   View,
   Text,
-  ActivityIndicator,
 } from 'react-native';
 import { appStore } from 'store/app';
 
 export const TestResult = observer(props => {
 
- const { weather } = appStore;
 
   return(
     <View style={styles.result}>

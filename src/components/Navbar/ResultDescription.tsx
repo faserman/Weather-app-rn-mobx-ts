@@ -23,7 +23,7 @@ export const ResultDescription = observer(props => {
         onPress={ onPress }
         >
         <View>
-          { isLoding ? <ActivityIndicator size='small' color='#49B8EC' /> :
+          { isLoding ? <ActivityIndicator size='small' color='#EB6E4B' /> :
             <Text style={styles.text}>{ navbar }</Text> }
         </View>
       </TouchableOpacity>
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderStyle: 'solid',
+    marginTop: 2,
     borderBottomWidth: 2,
     borderBottomColor: '#EB6E4B',
     borderRadius: 10,

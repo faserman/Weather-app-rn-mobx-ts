@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   navbar: {
     flexDirection: 'row',
     height: 60,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F2F3F2',
   },
   textWeather: {
     fontSize: 25,
