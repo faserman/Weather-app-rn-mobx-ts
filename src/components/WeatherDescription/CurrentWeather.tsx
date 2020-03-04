@@ -4,19 +4,18 @@ import {
   StyleSheet,
   View,
   Text,
-  ActivityIndicator
 } from 'react-native';
 import { appStore } from 'store/app';
 
 export const CurrentWeather = observer(props => {
 
-  const { isLoding, currentWeather } = appStore;
+  const { successfulRequest, currentWeather, } = appStore;
 
   return(
     <View style={ styles.mainDescription }>
-      { isLoding ? <ActivityIndicator size='small' color='#EB6E4B' /> :
-        <Text style={ styles.currentTemp }>{ currentWeather.temp }</Text>
-      } 
+      { successfulRequest ? <Text style={ styles.currentTemp }>{ currentWeather.temp }</Text> :
+        null
+      }
     </View>
   )
 })
@@ -27,6 +26,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 200,
+    borderBottomWidth: 2,
+    borderBottomColor: '#EB6E4B',
+    borderRadius: 10,
   },
   currentTemp: {
     fontSize: 120,

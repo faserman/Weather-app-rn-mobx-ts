@@ -11,7 +11,7 @@ import { appStore } from 'store/app';
 
 export const Search = observer(props => {
 
-  const { value, gettingWeather } = appStore;
+  const { value, gettingCurrentWeather } = appStore;
 
   const onChangeText = (text: string) => {
     appStore.setValue(text);
@@ -27,7 +27,7 @@ export const Search = observer(props => {
       />
       <TouchableOpacity
         style={styles.button}
-        onPress={ gettingWeather }
+        onPress={ gettingCurrentWeather }
       >
         <Image
           style={styles.image}
