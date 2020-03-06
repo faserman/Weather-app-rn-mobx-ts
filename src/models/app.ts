@@ -1,7 +1,9 @@
-export interface CurrentWeather {
+export interface Weather {
   id: string,
-  temp: number,
-  feelsLike: number,
+  celsiusTemp: number,
+  fahrenheitTemp: number,
+  celsiusFeelsLike: number,
+  fahrenheitFeelsLike: number,
   pressureInMmhg: number,
   date: string,
   time: string,
@@ -11,11 +13,4 @@ export interface CurrentWeather {
   sunrise: string,
   sunset: string,
   cod: string,
-}
-
-export interface DailyForecast {
-  tempMorn: number,
-  tempDay: number,
-  tempEve: number,
-  tempNight: number,
 }
