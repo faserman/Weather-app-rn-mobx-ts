@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { appStore } from 'store/app';
+import { WeatherDescription } from './WeatherDescription';
 
 export const CurrentWeather = observer(props => {
 
@@ -16,13 +17,14 @@ export const CurrentWeather = observer(props => {
     <View>
       { successfulRequest ? <View style={ styles.mainDescription }>
         <View style={ styles.temp }>
-          <Text style={ styles.currentTemp }>
-            { celsiusTempMode ? weather.celsiusTemp : weather.fahrenheitTemp }
-          </Text>
-          <Text style={ styles.feelsLikeTemp }>
-            Feels like: { celsiusTempMode ? weather.celsiusFeelsLike : weather.fahrenheitFeelsLike } 
-              { celsiusTempMode ? <Text>&#8451;</Text> : <Text>&#8457;</Text> }
-          </Text>
+          <View style={ styles.currentTemp }>
+            <Text style={ styles.currentTempValue }>
+              { celsiusTempMode ? weather.celsiusTemp : weather.fahrenheitTemp }
+            </Text>
+          </View>
+            <Text style={ styles.feelsLikeTemp }>feels like: { celsiusTempMode ? weather.celsiusFeelsLike : weather.fahrenheitFeelsLike } 
+                { celsiusTempMode ? <Text>&#8451;</Text> : <Text>&#8457;</Text> }
+            </Text>
         </View>
         <TouchableOpacity
           style={ styles.button }
@@ -30,18 +32,18 @@ export const CurrentWeather = observer(props => {
         >
           <Text>
             { celsiusTempMode ? <Text 
-              style={ styles.text }
-              >&#8451;</Text> : 
+                style={ styles.text }
+                >&#8451;</Text> : 
               <Text 
-              style={ styles.text }
-              >&#8457;</Text> 
-            }
+                style={ styles.text }
+                >&#8457;</Text> }
           </Text>
         </TouchableOpacity>
       </View> : null }
+      <WeatherDescription />
     </View>
   )
-})
+});
 
 const styles = StyleSheet.create({
   mainDescription: {
@@ -53,13 +55,14 @@ const styles = StyleSheet.create({
   },
   temp: {
     flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
     width: 165,
   },
   currentTemp: {
+    width: 165,
+    alignItems: 'flex-end',
+  },
+  currentTempValue: {
     fontSize: 100,
-    marginLeft: 20,
   },
   feelsLikeTemp: {
     fontSize: 20,
