@@ -11,7 +11,6 @@ import { appStore } from 'store/app';
 export const WeatherDescription = observer(props =>{
 
   const { weather, urlWeatherIcon } = appStore
-  console.log(urlWeatherIcon)
 
   return(
     <View style={ styles.weatherDescription }>

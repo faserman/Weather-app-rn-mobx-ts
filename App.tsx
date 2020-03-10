@@ -2,8 +2,7 @@ import React from 'react';
 import { StyleSheet, View} from 'react-native';
 import { observer } from 'mobx-react';
 import { Navbar } from 'components/Navbar/index';
-import { CurrentWeather } from 'components/WeatherDescription/CurrentWeather';
-//import { TestResult } from 'components/WeatherDescription/TestResult';
+import { CurrentWeather } from 'components/CurrentWeather';
 import { appStore } from 'store/app';
 
 @observer

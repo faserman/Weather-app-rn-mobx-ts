@@ -1,5 +1,6 @@
 import { observable, action } from 'mobx';
 import { Weather} from 'models/app';
+import { utils } from '../utils/index';
 
 class AppStore {
   @observable value: string = 'Sibay';
@@ -11,7 +12,7 @@ class AppStore {
   @observable successfulRequest: boolean = true;
   @observable navbar: string = '';
   @observable apiKey: string = "546a0e84dacdbf34088457c38f5c4f43";
-  @observable urlWeatherIcon: string = undefined;
+  @observable urlWeatherIcon: string = '';
 
   @action
   setValue(value: string) {
@@ -36,6 +37,12 @@ class AppStore {
   @action.bound
   setCelsiusTempMode() {
     this.celsiusTempMode = !this.celsiusTempMode;
+  }
+
+  @action
+  setUrlWeatherIcon(weatherDescription: string) {
+    const result = utils.getWeatherDescription(weatherDescription);
+    this.urlWeatherIcon = result;
   }
 
   @action
@@ -92,8 +99,8 @@ class AppStore {
       ];
       this.setNavbar(navbar);
       this.setWeather(weather);
+      this.setUrlWeatherIcon(weather.weatherDescription);
       this.setSuccessfulRequest(true);
-      this.getWeatherDescription(weather.weatherDescription)
       this.clearValue();
       console.log(weather.weatherDescription)
     } catch (error) {
@@ -101,63 +108,6 @@ class AppStore {
     }
     this.setIsLoding(false);
   };
-
-  @action.bound
-  getWeatherDescription(weatherDescription) {
-    let urlWeatherIcon = "";
-    switch (weatherDescription) {
-      case "broken clouds":
-        urlWeatherIcon = "https://img.icons8.com/color/96/000000/clouds.png";
-        break;
-      case "dust":
-        urlWeatherIcon="https://img.icons8.com/color/96/000000/dry.png"
-        break;
-      case "few clouds":
-        urlWeatherIcon="https://img.icons8.com/color/96/000000/partly-cloudy-day.png" 
-        break;
-      case "light rain":
-        urlWeatherIcon="https://img.icons8.com/color/96/000000/light-rain.png"
-        break;
-      case "moderate rain":
-        urlWeatherIcon="https://img.icons8.com/color/96/000000/light-rain.png"
-        break;
-      case "light snow":
-        urlWeatherIcon="https://img.icons8.com/color/96/000000/light-snow.png"
-        break;
-      case "overcast clouds":
-        urlWeatherIcon="https://img.icons8.com/color/96/000000/clouds.png"
-        break;
-      case "proximity shower rain":
-        urlWeatherIcon="https://img.icons8.com/color/96/000000/heavy-rain.png"
-        break;
-        case "light shower snow":
-          urlWeatherIcon="https://img.icons8.com/color/96/000000/sleet.png"
-        break;
-        case "snow":
-          urlWeatherIcon="https://img.icons8.com/color/96/000000/snow.png"
-        break;
-        case "shower snow":
-          urlWeatherIcon="https://img.icons8.com/color/96/000000/snow-storm.png"
-        break;
-      case "scattered clouds":
-        urlWeatherIcon="https://img.icons8.com/color/96/000000/clouds.png"
-        break;
-      case "clear sky":
-        urlWeatherIcon="https://img.icons8.com/color/96/000000/summer.png"
-        break;
-      case "thunderstorm":
-        urlWeatherIcon="https://img.icons8.com/color/96/000000/storm.png"
-        break;
-      case "light intensity drizzle":
-        urlWeatherIcon="https://img.icons8.com/color/96/000000/sleet.png"
-        break;
-      case "fog":
-        urlWeatherIcon="https://img.icons8.com/color/96/000000/fog-day.png"
-        break;
-      default: urlWeatherIcon="https://img.icons8.com/color/96/000000/summer.png";
-    }
-    this.urlWeatherIcon = urlWeatherIcon 
-  }
 }
 
 //runtype
