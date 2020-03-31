@@ -1,5 +1,10 @@
-export interface Weather {
+export interface Location {
   id: string,
+  cityName: string,
+  country: string,
+}
+
+export interface Weather {
   celsiusTemp: number,
   fahrenheitTemp: number,
   celsiusFeelsLike: number,

@@ -1,5 +1,7 @@
 import { observable, action } from 'mobx';
 import { Weather} from 'models/app';
+import { locationApi } from '../api/locationApi';
+import { weatherApi } from '../api/weatherApi';
 import { utils } from '../utils/index';
 
 class AppStore {
@@ -25,8 +27,8 @@ class AppStore {
   }
 
   @action
-  setWeather(weather: Weather) {
-    this.weather = weather;
+  setWeather(result: Weather) {
+    this.weather = result;
   }
 
   @action
@@ -73,36 +75,14 @@ class AppStore {
     this.setToggleView(false);
     this.setSuccessfulRequest(false);
     try {
-      const urlCurrentWeather = await
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ this.value }&appid=${ this.apiKey }&units=metric`);
-      const currentWeather = await urlCurrentWeather.json();
-      const weather: Weather = {
-        id: currentWeather.weather[0].id,
-        celsiusTemp: Math.round(currentWeather.main.temp),
-        fahrenheitTemp: Math.round((currentWeather.main.temp * 9/5) + 32),
-        celsiusFeelsLike: Math.round(currentWeather.main.feels_like),
-        fahrenheitFeelsLike: Math.round(currentWeather.main.feels_like * 9/5) + 32,
-        pressureInMmhg: Math.round(currentWeather.main.pressure / 1.333),
-        date: new Date().toLocaleDateString(),
-        time: new Date().toLocaleTimeString(),
-        weatherDescription: currentWeather.weather[0].description,
-        windSpeed: parseFloat(currentWeather.wind.speed).toFixed(1),
-        windDeg: Math.round(currentWeather.wind.deg),
-        sunrise: new Date(currentWeather.sys.sunrise * 1000).toLocaleDateString(),
-        sunset: new Date(currentWeather.sys.sunset * 1000).toLocaleDateString(),
-        cod: currentWeather.cod,
-      };
-      const navbar: string[] = [
-        currentWeather.name,
-        ', ',
-        currentWeather.sys.country
-      ];
+      const weather = await weatherApi.getCurrentForecast();
+      const navbar = await locationApi.getLocation();
       this.setNavbar(navbar);
       this.setWeather(weather);
       this.setUrlWeatherIcon(weather.weatherDescription);
       this.setSuccessfulRequest(true);
       this.clearValue();
-      console.log(weather.weatherDescription)
+      console.log(weather.weatherDescription);
     } catch (error) {
       this.setNavbar('city not found');
     }
