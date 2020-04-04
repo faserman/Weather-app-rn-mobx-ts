@@ -13,6 +13,7 @@ export interface Weather {
   date: string,
   time: string,
   weatherDescription: string,
+  weatherIconUrl: string,
   windSpeed: string,
   windDeg: number,
   sunrise: string,
@@ -29,4 +30,5 @@ export interface AllDayForecast {
   pressureInMmhg: number,
   humidity: string,
   weatherDescription: string,
+  weatherIconUrl: string,
 }

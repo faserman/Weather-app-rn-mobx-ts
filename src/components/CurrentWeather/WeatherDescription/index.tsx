@@ -10,14 +10,14 @@ import { appStore } from 'store/app';
 
 export const WeatherDescription = observer(props =>{
 
-  const { weather, urlWeatherIcon } = appStore
+  const { weather } = appStore
 
   return(
     <View style={ styles.weatherDescription }>
       <View>
         <Image
           style={ styles.icon }
-          source={{uri:  urlWeatherIcon }}
+          source={{uri:  weather.weatherIconUrl }}
         />
       </View>
       <Text style={ styles.textDescription }>
@@ -34,11 +34,12 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   icon: {
-    alignSelf: 'center',
+    alignSelf: 'flex-start',
     width: 100,
     height: 100,
   },
   textDescription: {
+    alignSelf: 'flex-start',
     marginTop: 6,
     fontSize: 20,
   }

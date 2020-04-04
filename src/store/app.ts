@@ -3,7 +3,6 @@ import { Weather } from 'models/app';
 import { locationApi } from '../api/locationApi';
 import { weatherApi } from '../api/weatherApi';
 import { allDayForecastApi } from '../api/AllDayForecastApi';
-import { utils } from '../utils/index';
 
 class AppStore {
   @observable value: string = 'Ufa';
@@ -16,7 +15,6 @@ class AppStore {
   @observable successfulRequest: boolean = true;
   @observable navbar: string = '';
   @observable apiKey: string = "546a0e84dacdbf34088457c38f5c4f43";
-  @observable urlWeatherIcon: string = '';
 
   @action
   setValue(value: string) {
@@ -51,12 +49,6 @@ class AppStore {
   @action.bound
   setCelsiusTempMode() {
     this.celsiusTempMode = !this.celsiusTempMode;
-  }
-
-  @action
-  setUrlWeatherIcon(weatherDescription: string) {
-    const result = utils.getWeatherDescription(weatherDescription);
-    this.urlWeatherIcon = result;
   }
 
   @action
@@ -95,7 +87,6 @@ class AppStore {
       this.setNavbar(navbar);
       const allDayForecast = await allDayForecastApi.getAllDay();
       this.setAllDayForecast(allDayForecast);
-      this.setUrlWeatherIcon(weather.weatherDescription);
       this.setSuccessfulRequest(true);
       this.clearValue();
       console.log(allDayForecast);

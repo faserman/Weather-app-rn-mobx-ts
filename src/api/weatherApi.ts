@@ -1,5 +1,6 @@
 import { Weather } from 'models/app';
 import { appStore } from '../store/app';
+import { utils } from '../utils/index';
 
 class WeatherApi {
   async getCurrentForecast() {
@@ -16,6 +17,7 @@ class WeatherApi {
       date: new Date().toLocaleDateString(),
       time: new Date().toLocaleTimeString(),
       weatherDescription: currentWeather.weather[0].description,
+      weatherIconUrl: utils.getWeatherDescription(currentWeather.weather[0].description, '96'),
       windSpeed: parseFloat(currentWeather.wind.speed).toFixed(1),
       windDeg: Math.round(currentWeather.wind.deg),
       sunrise: new Date(currentWeather.sys.sunrise * 1000).toLocaleDateString(),
