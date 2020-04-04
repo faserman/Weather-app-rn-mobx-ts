@@ -3,9 +3,9 @@ import { appStore } from '../store/app';
 
 class WeatherApi {
   async getCurrentForecast() {
-    const { value, apiKey } = appStore;
+    const { cityName, apiKey } = appStore;
     const urlCurrentWeather = await
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ value }&appid=${ apiKey }&units=metric`);
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ cityName }&appid=${ apiKey }&units=metric`);
     const currentWeather = await urlCurrentWeather.json();
     const weather: Weather = {
       celsiusTemp: Math.round(currentWeather.main.temp),

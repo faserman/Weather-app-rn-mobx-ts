@@ -2,9 +2,9 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { 
   StyleSheet,
-  TextInput, 
-  View, 
-  TouchableOpacity, 
+  TextInput,
+  View,
+  TouchableOpacity,
   Image
 } from 'react-native';
 import { appStore } from 'store/app';

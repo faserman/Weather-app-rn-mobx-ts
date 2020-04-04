@@ -3,9 +3,9 @@ import { appStore } from '../store/app';
 
 class LocationApi {
   async getLocation() {
-    const { value, apiKey } = appStore;
+    const { cityName, apiKey } = appStore;
     const urlCurrentWeather = await
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ value }&appid=${ apiKey }&units=metric`);
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ cityName }&appid=${ apiKey }&units=metric`);
     const currentWeather = await urlCurrentWeather.json();
     const location: Location = {
       id: currentWeather.weather[0].id,

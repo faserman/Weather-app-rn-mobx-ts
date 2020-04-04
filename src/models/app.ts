@@ -19,3 +19,14 @@ export interface Weather {
   sunset: string,
   cod: string,
 }
+
+export interface AllDayForecast {
+  id: number,
+  dt_txt: string,
+  forecastDate: any,
+  celsiusTemp: number,
+  fahrenheitTemp: number,
+  pressureInMmhg: number,
+  humidity: string,
+  weatherDescription: string,
+}
