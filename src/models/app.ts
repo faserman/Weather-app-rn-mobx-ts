@@ -21,10 +21,11 @@ export interface Weather {
   cod: string,
 }
 
-export interface AllDayForecast {
-  id: number,
+export interface DailyForecast {
+  id: string,
   dt_txt: string,
   forecastDate: any,
+  forecastTime: any,
   celsiusTemp: number,
   fahrenheitTemp: number,
   pressureInMmhg: number,

@@ -3,6 +3,7 @@ import { StyleSheet, View} from 'react-native';
 import { observer } from 'mobx-react';
 import { Navbar } from 'components/Navbar/index';
 import { CurrentWeather } from 'components/CurrentWeather';
+import { DailyForecastList } from 'components/DailyForecastList/index';
 import { appStore } from 'store/app';
 
 @observer
@@ -13,7 +14,12 @@ class App extends React.Component<{}> {
     return (
       <View style={styles.container}>
         <Navbar />
-        {!toggleView ? <CurrentWeather /> : null}
+        {!toggleView ? 
+          <View>
+            <CurrentWeather />
+            <DailyForecastList />
+          </View> : null
+        }
       </View>
     );
   }
@@ -22,7 +28,7 @@ class App extends React.Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2F3F2',
+    backgroundColor: '#E8E9EB'
   },
 });
 

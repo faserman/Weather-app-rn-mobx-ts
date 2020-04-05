@@ -1,8 +1,9 @@
 import { observable, action } from 'mobx';
 import { Weather } from 'models/app';
+import { DailyForecast } from 'models/app';
 import { locationApi } from '../api/locationApi';
 import { weatherApi } from '../api/weatherApi';
-import { allDayForecastApi } from '../api/AllDayForecastApi';
+import { dailyForecastApi } from '../api/dailyForecastApi';
 
 class AppStore {
   @observable value: string = 'Ufa';
@@ -10,7 +11,7 @@ class AppStore {
   @observable isLoding: boolean = false;
   @observable toggleView: boolean = true;
   @observable weather: Weather | undefined;
-  @observable allDayForecast: any | undefined;
+  @observable dailyForecast: DailyForecast[] = [];
   @observable celsiusTempMode: boolean = true;
   @observable successfulRequest: boolean = true;
   @observable navbar: string = '';
@@ -37,8 +38,8 @@ class AppStore {
   }
 
   @action
-  setAllDayForecast(result: any) {
-    this.allDayForecast = result;
+  setDailyForecast(result: any) {
+    this.dailyForecast = result;
   }
 
   @action
@@ -85,13 +86,10 @@ class AppStore {
       this.setWeather(weather);
       const navbar = await locationApi.getLocation();
       this.setNavbar(navbar);
-      const allDayForecast = await allDayForecastApi.getAllDay();
-      this.setAllDayForecast(allDayForecast);
+      const dailyForecast = await dailyForecastApi.getAllDay();
+      this.setDailyForecast(dailyForecast);
       this.setSuccessfulRequest(true);
       this.clearValue();
-      console.log(allDayForecast);
-      console.log(weather.date)
-      console.log(weather.weatherDescription);
     } catch (error) {
       this.setNavbar('city not found');
       console.log(error);

@@ -11,42 +11,60 @@ import { appStore } from 'store/app';
 
 export const ResultDescription = observer(props => {
 
-  const { isLoding, navbar } = appStore;
+  const { 
+    isLoding, 
+    navbar,
+  } = appStore;
 
+  const date = new Date().toLocaleDateString();
+  const time = new Date().toLocaleTimeString();
+ 
   const onPress = () => {
     appStore.setToggleView(true);
   };
 
   return(
-    <View style={ styles.cityName }>
+    <View style={ styles.container }>
       <TouchableOpacity
         onPress={ onPress }
         >
-        <View>
-          { isLoding ? <ActivityIndicator size='small' color='#EB6E4B' /> :
-            <Text style={styles.text}>{ navbar }</Text> }
-        </View>
+        { isLoding ? <ActivityIndicator size='small' color='#EB6E4B' /> :
+          <View style={ styles.resultDescription }>
+            <Text style={ styles.cityText }>{ navbar }</Text>
+            <Text style={ styles.dtText }>{ date } { time }</Text>
+          </View>
+        }
       </TouchableOpacity>
     </View>
   )
 })
-
   
 const styles = StyleSheet.create({
-  cityName: {
-    flexDirection: 'row',
+  container: {
+    height: 60,
+    marginTop: 3,
+    alignContent: 'center',
     width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderStyle: 'solid',
-    marginTop: 2,
-    borderBottomWidth: 2,
-    borderBottomColor: '#EB6E4B',
-    borderRadius: 10,
+    backgroundColor: '#E8E9EB',
   },
-  text: {
+  resultDescription: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    width: '98%',
+    height: '100%',
+    borderRadius: 3,
+    backgroundColor: '#F6F8FA',
+  },
+  cityText: {
     fontSize: 25,
     color: '#1E1E1E',
     padding: 5,
   },
+  dtText: {
+    fontSize: 20,
+    marginTop: -8,
+    color: '#1E1E1E',
+  }
 })

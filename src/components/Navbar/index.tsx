@@ -34,7 +34,7 @@ export const Navbar = observer(props => {
           </Text>
         </TouchableOpacity>
       </View>
-      <View style={ styles.navbar }>
+      <View>
         { toggleView ? <Search /> : <ResultDescription /> }
       </View>
     </View>
@@ -47,11 +47,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     backgroundColor: '#4E4D4A',
-  },
-  navbar: {
-    flexDirection: 'row',
-    height: 60,
-    backgroundColor: '#F2F3F2',
   },
   textWeather: {
     fontSize: 25,
