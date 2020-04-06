@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import { Navbar } from 'components/Navbar/index';
 import { CurrentWeather } from 'components/CurrentWeather';
 import { DailyForecastList } from 'components/DailyForecastList/index';
+import { DescriptionCurrentWeather } from 'components/DescriptionCurrentWeather/index';
 import { appStore } from 'store/app';
 
 @observer
@@ -18,6 +19,7 @@ class App extends React.Component<{}> {
           <View>
             <CurrentWeather />
             <DailyForecastList />
+            <DescriptionCurrentWeather />
           </View> : null
         }
       </View>

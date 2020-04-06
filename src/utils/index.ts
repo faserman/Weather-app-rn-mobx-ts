@@ -57,6 +57,19 @@ class Utils {
     }
     return urlWeatherIcon
   };
+
+  windDirection(windDeg: number) {
+    const windDirection = (windDeg >= 0 && windDeg <= 20) ? "Северный" :
+      (windDeg >= 21 && windDeg <= 70) ? "Северо-восточный" :
+      (windDeg >= 71 && windDeg <= 110) ? "Восточный" :
+      (windDeg >= 111 && windDeg <= 155) ? "Юго-восточный" :
+      (windDeg >= 156 && windDeg <= 200) ? "Южный" :
+      (windDeg >= 201 && windDeg <= 250) ? "Юго-западный" :
+      (windDeg >= 251 && windDeg <= 290) ? "Западный" :
+      (windDeg >= 291 && windDeg <= 340) ? "Северо-западный" :
+      (windDeg >= 341 && windDeg <= 360) ? "Северный" : ""
+    return windDirection
+  }
 };
 
 export const utils = new Utils();

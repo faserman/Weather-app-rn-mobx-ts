@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#E8E9EB',
   },
   mainDescription: {
-    //marginTop: 2,
     flexDirection: 'row',
     justifyContent: 'center',
     width: '98%',

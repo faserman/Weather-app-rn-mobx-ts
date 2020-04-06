@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   textWeather: {
     fontSize: 25,
-    color: '#EB6E4B',
+    color: '#B5DDF5',
   },
   textApp: {
     margin: 5,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     margin: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#EB6E4B',
+    backgroundColor: '#B5DDF5',
     height: 30,
     width: 30,
     borderRadius: 2,
