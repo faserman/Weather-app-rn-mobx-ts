@@ -22,8 +22,9 @@ export const Wind = observer(props => {
         >
         </Image>
         <View style={ styles.windDescription }>
-          <Text>{ weather.windSpeed } m/s</Text>
-          <Text>{ weather.windDeg }</Text>
+          <Text>{ weather.windForce } m/s</Text>
+          <Text>{ weather.windVerbalDesignation }</Text>
+          <Text>{ weather.windDirection }</Text>
         </View>
       </View>
     </View>
@@ -40,12 +41,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
-    marginLeft: 5
+    marginLeft: 5,
   },
   wind: {
     flexDirection: 'row',
     alignSelf: 'center',
-    justifyContent: 'center',
   },
   windIcon: {
     width: 80,
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
   windDescription: {
     marginLeft: 3,
     flexDirection: "column",
-    
     alignSelf: 'center',
   },
   text: {

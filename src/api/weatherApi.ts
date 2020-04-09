@@ -9,6 +9,7 @@ class WeatherApi {
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ cityName }&appid=${ apiKey }&units=metric`);
     const currentWeather = await urlCurrentWeather.json();
     const windDeg = Math.round(currentWeather.wind.deg);
+    const windForce = parseFloat(currentWeather.wind.speed);
     const weatherDescription = currentWeather.weather[0].description
     const sizeIcon = '96';
     const weather: Weather = {
@@ -21,9 +22,10 @@ class WeatherApi {
       date: new Date().toLocaleDateString(),
       time: new Date().toLocaleTimeString(),
       weatherDescription: weatherDescription,
-      weatherIconUrl: utils.getWeatherDescription(weatherDescription, sizeIcon),
-      windSpeed: parseFloat(currentWeather.wind.speed).toFixed(1),
-      windDirection: utils.windDirection(windDeg),
+      weatherIconUrl: utils.setWeatherIcon(weatherDescription, sizeIcon),
+      windForce: windForce,
+      windVerbalDesignation: utils.setWindVerbalDesignation(windForce),
+      windDirection: utils.setWindDirection(windDeg),
       sunrise: new Date(currentWeather.sys.sunrise * 1000).toLocaleDateString(),
       sunset: new Date(currentWeather.sys.sunset * 1000).toLocaleDateString(),
       cod: currentWeather.cod,

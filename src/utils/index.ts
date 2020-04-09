@@ -1,5 +1,5 @@
 class Utils {
-  getWeatherDescription(weatherDescription: string, size: string) {
+  setWeatherIcon(weatherDescription: string, size: string) {
     let urlWeatherIcon = "";
     switch (weatherDescription) {
       case "broken clouds":
@@ -58,7 +58,7 @@ class Utils {
     return urlWeatherIcon
   };
 
-  windDirection(windDeg: number) {
+  setWindDirection(windDeg: number) {
     const windDirection = (windDeg >= 0 && windDeg <= 20) ? "Северный" :
       (windDeg >= 21 && windDeg <= 70) ? "Северо-восточный" :
       (windDeg >= 71 && windDeg <= 110) ? "Восточный" :
@@ -69,6 +69,23 @@ class Utils {
       (windDeg >= 291 && windDeg <= 340) ? "Северо-западный" :
       (windDeg >= 341 && windDeg <= 360) ? "Северный" : ""
     return windDirection
+  }
+
+  setWindVerbalDesignation(windForce: number) {
+    const verbalDesignation = (windForce >= 0 && windForce <= 0.2) ? "Штиль" :
+      (windForce >= 0.3 && windForce <= 1.5) ? "Тихий" :
+      (windForce >= 1.6 && windForce <= 3.3) ? "Легкий" :
+      (windForce >= 3.4 && windForce <= 5.4) ? "Слабый" :
+      (windForce >= 5.5 && windForce <= 7.9) ? "Умеренный" :
+      (windForce >= 8.0 && windForce <= 10.7) ? "Свежий" :
+      (windForce >= 10.8 && windForce <= 13.8) ? "Сильный" :
+      (windForce >= 13.9 && windForce <= 17.1) ? "Крепкий" :
+      (windForce >= 17.2 && windForce <= 20.7) ? "Очень крепкий" :
+      (windForce >= 20.8 && windForce <= 24.4) ? "Шторм" :
+      (windForce >= 24.5 && windForce <= 28.4) ? "Сильный шторм" :
+      (windForce >= 28.5 && windForce <= 32.6) ? "Жестокий шторм" :
+      (windForce >= 32.7) ? "Ураган" : ""
+    return verbalDesignation
   }
 };
 

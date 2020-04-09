@@ -22,7 +22,7 @@ class DailyForecastApi {
         humidity: (item.main.humidity) + '%',
         pressureInMmhg: Math.round(item.main.pressure / 1.333),
         weatherDescription: item.weather[0].description,
-        weatherIconUrl: utils.getWeatherDescription(item.weather[0].description, sizeIcon),
+        weatherIconUrl: utils.setWeatherIcon(item.weather[0].description, sizeIcon),
       };
       dailyForecastList.push(elem);
     })
