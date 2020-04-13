@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View} from 'react-native';
+import { StyleSheet, View, Image} from 'react-native';
 import { observer } from 'mobx-react';
 import { Navbar } from 'components/Navbar/index';
 import { CurrentWeather } from 'components/CurrentWeather';
@@ -10,10 +10,15 @@ import { appStore } from 'store/app';
 @observer
 class App extends React.Component<{}> {
   render() {
-    const { toggleView } = appStore;
+
+    const { toggleView, weatherDescriptionImage } = appStore;
 
     return (
       <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source={{uri: `https://source.unsplash.com/720x1560/?nature${ weatherDescriptionImage }`}}
+        />
         <Navbar />
         {!toggleView ? 
           <View>
@@ -29,9 +34,13 @@ class App extends React.Component<{}> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#E8E9EB'
+    flex: 1
   },
+  image: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+  }
 });
 
 export default App;

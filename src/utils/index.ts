@@ -59,32 +59,32 @@ class Utils {
   };
 
   setWindDirection(windDeg: number) {
-    const windDirection = (windDeg >= 0 && windDeg <= 20) ? "Северный" :
-      (windDeg >= 21 && windDeg <= 70) ? "Северо-восточный" :
-      (windDeg >= 71 && windDeg <= 110) ? "Восточный" :
-      (windDeg >= 111 && windDeg <= 155) ? "Юго-восточный" :
-      (windDeg >= 156 && windDeg <= 200) ? "Южный" :
-      (windDeg >= 201 && windDeg <= 250) ? "Юго-западный" :
-      (windDeg >= 251 && windDeg <= 290) ? "Западный" :
-      (windDeg >= 291 && windDeg <= 340) ? "Северо-западный" :
-      (windDeg >= 341 && windDeg <= 360) ? "Северный" : ""
+    const windDirection = (windDeg >= 0 && windDeg <= 20) ? "North" :
+      (windDeg >= 21 && windDeg <= 70) ? "North-east" :
+      (windDeg >= 71 && windDeg <= 110) ? "East" :
+      (windDeg >= 111 && windDeg <= 155) ? "South-east" :
+      (windDeg >= 156 && windDeg <= 200) ? "South" :
+      (windDeg >= 201 && windDeg <= 250) ? "South-west" :
+      (windDeg >= 251 && windDeg <= 290) ? "West" :
+      (windDeg >= 291 && windDeg <= 340) ? "North-west" :
+      (windDeg >= 341 && windDeg <= 360) ? "North" : ""
     return windDirection
   }
 
   setWindVerbalDesignation(windForce: number) {
-    const verbalDesignation = (windForce >= 0 && windForce <= 0.2) ? "Штиль" :
-      (windForce >= 0.3 && windForce <= 1.5) ? "Тихий" :
-      (windForce >= 1.6 && windForce <= 3.3) ? "Легкий" :
-      (windForce >= 3.4 && windForce <= 5.4) ? "Слабый" :
-      (windForce >= 5.5 && windForce <= 7.9) ? "Умеренный" :
-      (windForce >= 8.0 && windForce <= 10.7) ? "Свежий" :
-      (windForce >= 10.8 && windForce <= 13.8) ? "Сильный" :
-      (windForce >= 13.9 && windForce <= 17.1) ? "Крепкий" :
-      (windForce >= 17.2 && windForce <= 20.7) ? "Очень крепкий" :
-      (windForce >= 20.8 && windForce <= 24.4) ? "Шторм" :
-      (windForce >= 24.5 && windForce <= 28.4) ? "Сильный шторм" :
-      (windForce >= 28.5 && windForce <= 32.6) ? "Жестокий шторм" :
-      (windForce >= 32.7) ? "Ураган" : ""
+    const verbalDesignation = (windForce >= 0 && windForce <= 0.2) ? "Calm wind" :
+      (windForce >= 0.3 && windForce <= 1.5) ? "Quiet wind" :
+      (windForce >= 1.6 && windForce <= 3.3) ? "Easy wind" :
+      (windForce >= 3.4 && windForce <= 5.4) ? "Light wind" :
+      (windForce >= 5.5 && windForce <= 7.9) ? "Moderate wind" :
+      (windForce >= 8.0 && windForce <= 10.7) ? "Fresh wind" :
+      (windForce >= 10.8 && windForce <= 13.8) ? "Strong wind" :
+      (windForce >= 13.9 && windForce <= 17.1) ? "Near (hard) gale" :
+      (windForce >= 17.2 && windForce <= 20.7) ? "Gale" :
+      (windForce >= 20.8 && windForce <= 24.4) ? "Strong gale" :
+      (windForce >= 24.5 && windForce <= 28.4) ? "Storm" :
+      (windForce >= 28.5 && windForce <= 32.6) ? "Violent storm" :
+      (windForce >= 32.7) ? "Hurricane" : ""
     return verbalDesignation
   }
 };

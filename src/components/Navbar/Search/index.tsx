@@ -41,7 +41,7 @@ export const Search = observer(props => {
 const styles = StyleSheet.create({
   search: {
     flexDirection: 'row',
-    marginTop: 5,
+    margin: 3,
     justifyContent: 'flex-end',
   },
   button: {
@@ -56,10 +56,8 @@ const styles = StyleSheet.create({
   input: {
     width: '80%',
     padding: 7,
-    borderStyle: 'solid',
-    borderBottomWidth: 2,
-    borderBottomColor: '#EB6E4B',
-    borderRadius: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    borderRadius: 5,
     color: '#1E1E1E',
     fontSize: 25
   },

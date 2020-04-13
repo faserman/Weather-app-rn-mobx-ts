@@ -14,18 +14,15 @@ export const Wind = observer(props => {
 
   return(
     <View style={ styles.container }>
-      <Text style={ styles.title }>Wind: </Text>
-      <View style={ styles.wind }>
-        <Image
-          style={ styles.windIcon }
-          source={{uri: "https://img.icons8.com/officel/80/000000/wind.png"}}
-        >
-        </Image>
-        <View style={ styles.windDescription }>
-          <Text>{ weather.windForce } m/s</Text>
-          <Text>{ weather.windVerbalDesignation }</Text>
-          <Text>{ weather.windDirection }</Text>
-        </View>
+      <Image
+        style={ styles.windIcon }
+        source={{uri: "https://img.icons8.com/officel/80/000000/wind.png"}}
+      >
+      </Image>
+      <View style={ styles.windDescription }>
+        <Text>{ weather.windVerbalDesignation }</Text>
+        <Text>Wind force: { weather.windForce } m/s</Text>
+        <Text>Wind direction: { weather.windDirection }</Text>
       </View>
     </View>
   )
@@ -34,18 +31,12 @@ export const Wind = observer(props => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
     height: 104,
     margin: 3,
-    backgroundColor: '#F6F8FA',
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
     borderRadius: 5,
-  },
-  title: {
-    fontSize: 25,
-    marginLeft: 5,
-  },
-  wind: {
-    flexDirection: 'row',
-    alignSelf: 'center',
   },
   windIcon: {
     width: 80,
@@ -54,7 +45,6 @@ const styles = StyleSheet.create({
   windDescription: {
     marginLeft: 3,
     flexDirection: "column",
-    alignSelf: 'center',
   },
   text: {
 

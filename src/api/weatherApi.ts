@@ -1,10 +1,8 @@
 import { Weather } from 'models/app';
-import { appStore } from '../store/app';
 import { utils } from '../utils/index';
 
 class WeatherApi {
-  async getCurrentForecast() {
-    const { cityName, apiKey } = appStore;
+  async getCurrentForecast(cityName: string, apiKey: string) {
     const urlCurrentWeather = await
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ cityName }&appid=${ apiKey }&units=metric`);
     const currentWeather = await urlCurrentWeather.json();
@@ -19,8 +17,7 @@ class WeatherApi {
       fahrenheitFeelsLike: Math.round(currentWeather.main.feels_like * 9/5) + 32,
       pressureInMmhg: Math.round(currentWeather.main.pressure / 1.333),
       humidity: currentWeather.main.humidity + '%',
-      date: new Date().toLocaleDateString(),
-      time: new Date().toLocaleTimeString(),
+      dateTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
       weatherDescription: weatherDescription,
       weatherIconUrl: utils.setWeatherIcon(weatherDescription, sizeIcon),
       windForce: windForce,

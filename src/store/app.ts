@@ -14,8 +14,9 @@ class AppStore {
   @observable dailyForecast: DailyForecast[] = [];
   @observable celsiusTempMode: boolean = true;
   @observable successfulRequest: boolean = true;
-  @observable navbar: string = '';
+  @observable navbar: string | string[];
   @observable apiKey: string = "546a0e84dacdbf34088457c38f5c4f43";
+  @observable weatherDescriptionImage: string = '';
 
   @action
   setValue(value: string) {
@@ -28,8 +29,16 @@ class AppStore {
   }
 
   @action
-  setNavbar(navbar: any) {
+  setNavbar(navbar: string | string[]) {
+    if (typeof navbar === "string") {
+      this.navbar = navbar;
+    }
     this.navbar = navbar;
+  }
+
+  @action
+  setWeatherDescriptionImage(string: string) {
+    this.weatherDescriptionImage = ',' + string;
   }
 
   @action
@@ -38,7 +47,7 @@ class AppStore {
   }
 
   @action
-  setDailyForecast(result: any) {
+  setDailyForecast(result: DailyForecast[]) {
     this.dailyForecast = result;
   }
 
@@ -70,8 +79,9 @@ class AppStore {
 
   @action
   clearData() {
-    this.weather = undefined;
     this.navbar = '';
+    this.weather = undefined;
+    this.dailyForecast = undefined;
   }
 
   @action.bound
@@ -82,16 +92,18 @@ class AppStore {
     this.setToggleView(false);
     this.setSuccessfulRequest(false);
     try {
-      const weather = await weatherApi.getCurrentForecast();
-      this.setWeather(weather);
-      const navbar = await locationApi.getLocation();
+      const navbar = await locationApi.getLocation(this.cityName, this.apiKey);
       this.setNavbar(navbar);
-      const dailyForecast = await dailyForecastApi.getAllDay();
+      const weather = await weatherApi.getCurrentForecast(this.cityName, this.apiKey);
+      this.setWeather(weather);
+      const dailyForecast = await dailyForecastApi.getAllDay(this.cityName, this.apiKey);
+      this.setWeatherDescriptionImage(this.weather.weatherDescription)
       this.setDailyForecast(dailyForecast);
       this.setSuccessfulRequest(true);
       this.clearValue();
     } catch (error) {
-      this.setNavbar('city not found');
+      this.setNavbar('CITY NOT FOUND');
+      console.log(this.navbar);
       console.log(error);
     }
     this.setIsLoding(false);

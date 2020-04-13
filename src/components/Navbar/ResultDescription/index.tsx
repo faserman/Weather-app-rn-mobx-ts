@@ -14,10 +14,9 @@ export const ResultDescription = observer(props => {
   const { 
     isLoding, 
     navbar,
+    weather,
+    successfulRequest
   } = appStore;
-
-  const date = new Date().toLocaleDateString();
-  const time = new Date().toLocaleTimeString();
  
   const onPress = () => {
     appStore.setToggleView(true);
@@ -28,10 +27,14 @@ export const ResultDescription = observer(props => {
       <TouchableOpacity
         onPress={ onPress }
         >
-        { isLoding ? <ActivityIndicator size='small' color='#EB6E4B' /> :
+        { isLoding ? <ActivityIndicator size='small' color='#B5DDF5' /> :
           <View style={ styles.resultDescription }>
             <Text style={ styles.cityText }>{ navbar }</Text>
-            <Text style={ styles.dtText }>{ date } { time }</Text>
+            { successfulRequest ? 
+              <Text style={ styles.dtText }>
+                { weather.dateTime }
+              </Text> : null
+            }
           </View>
         }
       </TouchableOpacity>
@@ -45,7 +48,6 @@ const styles = StyleSheet.create({
     marginTop: 3,
     alignContent: 'center',
     width: '100%',
-    backgroundColor: '#E8E9EB',
   },
   resultDescription: {
     flexDirection: 'column',
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     width: '98%',
     height: '100%',
     borderRadius: 3,
-    backgroundColor: '#F6F8FA',
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
   },
   cityText: {
     fontSize: 25,

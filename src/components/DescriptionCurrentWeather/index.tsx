@@ -10,11 +10,11 @@ import { Wind } from 'components/DescriptionCurrentWeather/Wind/index';
 
 export const DescriptionCurrentWeather = observer(props => {
 
-  const { isLoding, weather } = appStore;
+  const { successfulRequest } = appStore;
 
   return(
     <View style={ styles.container }>
-      { !isLoding ? 
+      { successfulRequest ? 
         <View>
           <Wind />
         </View> : null  
@@ -25,9 +25,13 @@ export const DescriptionCurrentWeather = observer(props => {
 
 const styles = StyleSheet.create({
   container: {
-    //height: 145,
     marginTop: 3,
-    backgroundColor: '#E8E9EB',
     borderRadius: 5,
   },
 })
+
+/*
+<Text style={ styles.feelsLikeTemp }>feels like: { celsiusTempMode ? weather.celsiusFeelsLike : weather.fahrenheitFeelsLike } 
+    { celsiusTempMode ? <Text>&#8451;</Text> : <Text>&#8457;</Text> }
+</Text>
+*/

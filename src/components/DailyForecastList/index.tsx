@@ -10,11 +10,11 @@ import { DailyForecastItem } from 'components/DailyForecastList/DailyForecastIte
 
 export const DailyForecastList = observer(props => {
 
-  const { dailyForecast, isLoding } = appStore;
+  const { dailyForecast, successfulRequest } = appStore;
 
   return(
     <View style={ styles.container }>
-      { !isLoding ? <FlatList
+      { successfulRequest ? <FlatList
         style={ styles.list }
         horizontal={true}
         keyExtractor={item => item.id.toString()}
@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
   container: {
     height: 145,
     marginTop: 3,
-    backgroundColor: '#E8E9EB',
     borderRadius: 5,
   },
   list: {

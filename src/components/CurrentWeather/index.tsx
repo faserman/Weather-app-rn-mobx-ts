@@ -25,15 +25,8 @@ export const CurrentWeather = observer(props => {
           <Text style={ styles.currentTemp }>
             { celsiusTempMode ? weather.celsiusTemp : weather.fahrenheitTemp }&#176;
           </Text>
-          <Image
-            style={ styles.icon }
-            source={{uri:  weather.weatherIconUrl }}
-          />
         </View>
         <View style={ styles.description }>
-          <Text style={ styles.feelsLikeTemp }>feels like: { celsiusTempMode ? weather.celsiusFeelsLike : weather.fahrenheitFeelsLike } 
-              { celsiusTempMode ? <Text>&#8451;</Text> : <Text>&#8457;</Text> }
-          </Text>
           <Text style={ styles.textDescription }>
             { weather.weatherDescription }
           </Text>
@@ -50,7 +43,6 @@ const styles = StyleSheet.create({
     height: 140,
     marginTop: 3,
     alignItems: 'center',
-    backgroundColor: '#E8E9EB',
   },
   mainDescription: {
     flexDirection: 'row',
@@ -58,16 +50,16 @@ const styles = StyleSheet.create({
     width: '98%',
     height: 100,
     borderRadius: 3,
-    backgroundColor: '#F6F8FA',
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
   },
   description: {
     marginTop: 3,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     width: '98%',
     height: 37,
     borderRadius: 3,
-    backgroundColor: '#F6F8FA',
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
   },
   icon: {
     marginTop: '2%',
