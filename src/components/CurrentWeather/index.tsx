@@ -56,19 +56,19 @@ const styles = StyleSheet.create({
     marginTop: 3,
     flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',
     width: '98%',
     height: 37,
     borderRadius: 3,
     backgroundColor: 'rgba(255, 255, 255, 0.6)',
   },
-  icon: {
+  /*icon: {
     marginTop: '2%',
     width: 100,
     height: 100,
-  },
+  },*/
   textDescription: {
     fontSize: 20,
-    marginLeft: '5%',
   },
   currentTemp: {
     fontSize: 100,

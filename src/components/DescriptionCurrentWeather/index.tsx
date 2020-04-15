@@ -6,6 +6,7 @@ import {
   Image,
 } from 'react-native';
 import { appStore } from 'store/app';
+import { Comfort } from 'components/DescriptionCurrentWeather/Comfort/index';
 import { Wind } from 'components/DescriptionCurrentWeather/Wind/index';
 
 export const DescriptionCurrentWeather = observer(props => {
@@ -16,6 +17,7 @@ export const DescriptionCurrentWeather = observer(props => {
     <View style={ styles.container }>
       { successfulRequest ? 
         <View>
+          <Comfort />
           <Wind />
         </View> : null  
       }

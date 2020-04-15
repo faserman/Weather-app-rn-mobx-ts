@@ -87,6 +87,16 @@ class Utils {
       (windForce >= 32.7) ? "Hurricane" : ""
     return verbalDesignation
   }
+
+  /*setTempMode(temp: number, mode: boolean) {
+    let result: number;
+    if (mode === true) {
+      result = temp;
+    } else {
+      result = Math.round((temp * 9/5) + 32)
+    };
+    return result
+  }*/
 };
 
 export const utils = new Utils();
