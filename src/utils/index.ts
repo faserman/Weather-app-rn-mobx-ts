@@ -1,61 +1,61 @@
 class Utils {
   setWeatherIcon(weatherDescription: string, size: string) {
-    let urlWeatherIcon = "";
+    let backgroundImage = "";
     switch (weatherDescription) {
       case "broken clouds":
-        urlWeatherIcon = `https://img.icons8.com/color/${ size }/000000/clouds.png`;
+        backgroundImage = `https://img.icons8.com/color/${ size }/000000/clouds.png`;
         break;
       case "dust":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/dry.png`
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/dry.png`
         break;
       case "few clouds":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/partly-cloudy-day.png` 
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/partly-cloudy-day.png` 
         break;
       case "light rain":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/light-rain.png`
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/light-rain.png`
         break;
       case "moderate rain":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/light-rain.png`
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/light-rain.png`
         break;
       case "light snow":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/light-snow.png`
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/light-snow.png`
         break;
       case "overcast clouds":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/clouds.png`
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/clouds.png`
         break;
       case "proximity shower rain":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/heavy-rain.png`
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/heavy-rain.png`
         break;
         case "light shower snow":
-          urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/sleet.png`
+          backgroundImage=`https://img.icons8.com/color/${ size }/000000/sleet.png`
         break;
         case "snow":
-          urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/snow.png`
+          backgroundImage=`https://img.icons8.com/color/${ size }/000000/snow.png`
         break;
         case "shower snow":
-          urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/snow-storm.png`
+          backgroundImage=`https://img.icons8.com/color/${ size }/000000/snow-storm.png`
         break;
       case "scattered clouds":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/clouds.png`
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/clouds.png`
         break;
       case "clear sky":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/summer.png`
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/summer.png`
         break;
       case "thunderstorm":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/storm.png`
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/storm.png`
         break;
       case "light intensity drizzle":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/sleet.png`
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/sleet.png`
         break;
       case "fog":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/fog-day.png`
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/fog-day.png`
         break;
       case "mist":
-        urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/fog-day.png`
+        backgroundImage=`https://img.icons8.com/color/${ size }/000000/fog-day.png`
         break;
-      default: urlWeatherIcon=`https://img.icons8.com/color/${ size }/000000/summer.png`;
+      default: backgroundImage=`https://img.icons8.com/color/${ size }/000000/summer.png`;
     }
-    return urlWeatherIcon
+    return backgroundImage
   };
 
   setWindDirection(windDeg: number) {
@@ -86,6 +86,68 @@ class Utils {
       (windForce >= 28.5 && windForce <= 32.6) ? "Violent storm" :
       (windForce >= 32.7) ? "Hurricane" : ""
     return verbalDesignation
+  }
+
+  setDescriptionBackgroundImg(weatherDescription: string) {
+    let backgroundImage: string = "";
+    switch (weatherDescription) {
+      case "broken clouds":
+        backgroundImage = "clouds";
+        break;
+      case "dust":
+        backgroundImage="desert"
+        break;
+      case "few clouds":
+        backgroundImage="clouds"
+        break;
+      case "light rain":
+        backgroundImage="rain"
+        break;
+      case "moderate rain":
+        backgroundImage="rain"
+        break;
+      case "light snow":
+        backgroundImage="snow"
+        break;
+      case "overcast clouds":
+        backgroundImage="clouds"
+        break;
+      case "proximity shower rain":
+        backgroundImage="heavy-rain"
+        break;
+      case "shower rain":
+        backgroundImage="rain"
+        break;
+      case "light shower snow":
+          backgroundImage="sleet"
+        break;
+      case "snow":
+          backgroundImage="snow"
+        break;
+      case "shower snow":
+          backgroundImage="snow-storm"
+        break;
+      case "scattered clouds":
+        backgroundImage="clouds"
+        break;
+      case "clear sky":
+        backgroundImage="clear-sky"
+        break;
+      case "thunderstorm":
+        backgroundImage="storm"
+        break;
+      case "light intensity drizzle":
+        backgroundImage="sleet"
+        break;
+      case "fog":
+        backgroundImage="fog"
+        break;
+      case "mist":
+        backgroundImage="mist"
+        break;
+      default: backgroundImage="clear-sky";
+    }
+    return backgroundImage
   }
 
   /*setTempMode(temp: number, mode: boolean) {

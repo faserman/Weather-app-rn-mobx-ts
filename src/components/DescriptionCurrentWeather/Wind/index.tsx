@@ -35,8 +35,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 104,
     margin: 3,
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderBottomColor: '#B5DDF5',
+    borderStyle: 'solid',
     borderRadius: 5,
+    borderBottomWidth: 1,
   },
   windIcon: {
     width: 80,

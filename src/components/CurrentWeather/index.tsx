@@ -3,64 +3,53 @@ import { observer } from 'mobx-react';
 import { 
   StyleSheet,
   View,
-  Image,
   Text,
 } from 'react-native';
 import { appStore } from 'store/app';
 
 export const CurrentWeather = observer(props => {
 
-  const { 
-    successfulRequest,
+  const {
     weather, 
     celsiusTempMode,
+    navbar
   } = appStore;
-
 
   return(
     <View>
-      { successfulRequest ?
       <View style={ styles.currentWeather }>
-        <View style={ styles.mainDescription }>
+        <Text style={ styles.cityNameText }>{ navbar }</Text>
+        <Text style={ styles.dtText }>{ weather.dateTime }</Text>
           <Text style={ styles.currentTemp }>
             { celsiusTempMode ? weather.celsiusTemp : weather.fahrenheitTemp }&#176;
           </Text>
-        </View>
-        <View style={ styles.description }>
           <Text style={ styles.textDescription }>
             { weather.weatherDescription }
           </Text>
-        </View>
       </View>
-      : null }
     </View>
   )
 });
 
 const styles = StyleSheet.create({
   currentWeather: {
+    flexDirection: 'column',
+    justifyContent: 'center',
     width: '100%',
     height: 140,
     marginTop: 3,
+    marginBottom: 10,
     alignItems: 'center',
   },
-  mainDescription: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    width: '98%',
-    height: 100,
-    borderRadius: 3,
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+  dtText: {
+    fontSize: 20,
+    marginTop: -8,
+    color: '#1E1E1E',
   },
-  description: {
-    marginTop: 3,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '98%',
-    height: 37,
-    borderRadius: 3,
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+  cityNameText: {
+    fontSize: 25,
+    color: '#1E1E1E',
+    padding: 5,
   },
   /*icon: {
     marginTop: '2%',
@@ -69,6 +58,7 @@ const styles = StyleSheet.create({
   },*/
   textDescription: {
     fontSize: 20,
+    marginTop: -20
   },
   currentTemp: {
     fontSize: 100,

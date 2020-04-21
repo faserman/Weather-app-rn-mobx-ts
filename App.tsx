@@ -1,32 +1,37 @@
 import React from 'react';
 import { StyleSheet, View, Image} from 'react-native';
 import { observer } from 'mobx-react';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Navbar } from 'components/Navbar/index';
-import { CurrentWeather } from 'components/CurrentWeather';
-import { DailyForecastList } from 'components/DailyForecastList/index';
-import { DescriptionCurrentWeather } from 'components/DescriptionCurrentWeather/index';
+import { ResultDescription } from 'components/ResultDescription/index';
 import { appStore } from 'store/app';
 
 @observer
 class App extends React.Component<{}> {
   render() {
 
-    const { toggleView, weatherDescriptionImage } = appStore;
+    const {
+      successfulRequest,
+      backgroundImg,
+      randomBackgroundImage,
+    } = appStore;
+    const image = successfulRequest ? backgroundImg : randomBackgroundImage;
 
     return (
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={{uri: `https://source.unsplash.com/720x1560/?nature${ weatherDescriptionImage }`}}
+          source={{uri: image}}
         />
+        { successfulRequest ? <LinearGradient 
+          colors={['rgba(246, 248, 250, 1)', 'transparent']}
+          start={[0.4, 0.4]}
+          end={[0.4, 0]}
+          locations={[0,0.5,]}
+          style={styles.gradient}
+        /> : null }
         <Navbar />
-        {!toggleView ? 
-          <View>
-            <CurrentWeather />
-            <DailyForecastList />
-            <DescriptionCurrentWeather />
-          </View> : null
-        }
+        <ResultDescription />
       </View>
     );
   }
@@ -40,6 +45,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     height: '100%',
+  },
+  gradient: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 1110,
   }
 });
 

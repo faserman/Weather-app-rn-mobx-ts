@@ -54,8 +54,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 109,
     height: 143,
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    borderLeftColor: '#B5DDF5',
+    borderRightColor: '#B5DDF5',
+    borderStyle: 'solid',
     borderRadius: 2,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
   },
   icon: {
     marginTop: 3,

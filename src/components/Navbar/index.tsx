@@ -8,11 +8,10 @@ import {
 import { observer } from 'mobx-react';
 import { appStore } from 'store/app';
 import { Search } from './Search';
-import { ResultDescription } from './ResultDescription';
 
 export const Navbar = observer(props => {
 
-  const { toggleView, celsiusTempMode } = appStore;
+  const { celsiusTempMode } = appStore;
 
   return(
     <View>
@@ -27,16 +26,14 @@ export const Navbar = observer(props => {
           <Text>
             { celsiusTempMode ? <Text 
                 style={ styles.textButton }
-                >&#8451;</Text> : 
+                >&#8451;</Text> :
               <Text 
                 style={ styles.textButton }
                 >&#8457;</Text> }
           </Text>
         </TouchableOpacity>
       </View>
-      <View>
-        { toggleView ? <Search /> : <ResultDescription /> }
-      </View>
+      <Search />
     </View>
   )
 });

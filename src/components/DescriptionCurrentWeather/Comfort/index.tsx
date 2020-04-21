@@ -23,9 +23,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: 104,
+    height: 20,
+    marginTop: 10,
     margin: 3,
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     borderRadius: 5,
   },
   feelsLike: {
