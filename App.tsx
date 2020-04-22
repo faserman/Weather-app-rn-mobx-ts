@@ -15,7 +15,7 @@ class App extends React.Component<{}> {
       backgroundImg,
       randomBackgroundImage,
     } = appStore;
-    const image = successfulRequest ? backgroundImg : randomBackgroundImage;
+    const image = successfulRequest ? backgroundImg : null;
 
     return (
       <View style={styles.container}>
@@ -39,7 +39,8 @@ class App extends React.Component<{}> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    position: 'absolute',
+    flex: 1,
   },
   image: {
     position: 'absolute',

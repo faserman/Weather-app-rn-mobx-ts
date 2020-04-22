@@ -92,31 +92,34 @@ class Utils {
     let backgroundImage: string = "";
     switch (weatherDescription) {
       case "broken clouds":
-        backgroundImage = "clouds";
+          backgroundImage = "clouds";
         break;
       case "dust":
-        backgroundImage="desert"
+          backgroundImage="desert"
         break;
       case "few clouds":
-        backgroundImage="clouds"
+          backgroundImage="clouds"
         break;
       case "light rain":
-        backgroundImage="rain"
+          backgroundImage="rain"
         break;
       case "moderate rain":
         backgroundImage="rain"
         break;
       case "light snow":
-        backgroundImage="snow"
+          backgroundImage="snow"
         break;
       case "overcast clouds":
-        backgroundImage="clouds"
+          backgroundImage="clouds"
         break;
       case "proximity shower rain":
-        backgroundImage="heavy-rain"
+          backgroundImage="heavy-rain"
         break;
       case "shower rain":
-        backgroundImage="rain"
+          backgroundImage="rain"
+        break;
+      case "light intensity shower rain":
+          backgroundImage="rain"
         break;
       case "light shower snow":
           backgroundImage="sleet"
@@ -128,22 +131,22 @@ class Utils {
           backgroundImage="snow-storm"
         break;
       case "scattered clouds":
-        backgroundImage="clouds"
+          backgroundImage="clouds"
         break;
       case "clear sky":
-        backgroundImage="clear-sky"
+          backgroundImage="clear-sky"
         break;
       case "thunderstorm":
-        backgroundImage="storm"
+          backgroundImage="storm"
         break;
       case "light intensity drizzle":
-        backgroundImage="sleet"
+          backgroundImage="sleet"
         break;
       case "fog":
-        backgroundImage="fog"
+          backgroundImage="fog"
         break;
       case "mist":
-        backgroundImage="mist"
+          backgroundImage="mist"
         break;
       default: backgroundImage="clear-sky";
     }

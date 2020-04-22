@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     height: 70,
     justifyContent: 'space-between',
     flexDirection: 'row',
-    backgroundColor: '#4E4D4A',
+    backgroundColor: '#495C78',
   },
   textWeather: {
     fontSize: 25,

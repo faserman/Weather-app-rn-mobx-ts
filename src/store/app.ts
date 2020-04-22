@@ -14,7 +14,7 @@ class AppStore {
   @observable dailyForecast: DailyForecast[] = [];
   @observable celsiusTempMode: boolean = true;
   @observable successfulRequest: boolean = false;
-  @observable navbar: string | string[];
+  @observable result: string | string[];
   @observable apiKey: string = "546a0e84dacdbf34088457c38f5c4f43";
   @observable randomBackgroundImage: string = 'https://source.unsplash.com/720x1560/?city';
   @observable backgroundImg: string = '';
@@ -30,11 +30,11 @@ class AppStore {
   }
 
   @action
-  setNavbar(navbar: string | string[]) {
-    if (typeof navbar === "string") {
-      this.navbar = navbar;
+  setResult(result: string | string[]) {
+    if (typeof result === "string") {
+      this.result = result;
     }
-    this.navbar = navbar;
+    this.result = result;
   }
 
   @action
@@ -75,7 +75,7 @@ class AppStore {
 
   @action
   clearData() {
-    this.navbar = '';
+    this.result = '';
     this.weather = undefined;
     this.dailyForecast = undefined;
   }
@@ -87,8 +87,8 @@ class AppStore {
     this.setIsLoding(true);
     this.setSuccessfulRequest(false);
     try {
-      const navbar = await locationApi.getLocation(this.cityName, this.apiKey);
-      this.setNavbar(navbar);
+      const result = await locationApi.getLocation(this.cityName, this.apiKey);
+      this.setResult(result);
       const weather = await weatherApi.getCurrentForecast(this.cityName, this.apiKey);
       this.setWeather(weather);
       const backgroundImg = backgroundImgApi.getBackgroundImage(this.weather.weatherDescription);
@@ -98,8 +98,8 @@ class AppStore {
       this.setSuccessfulRequest(true);
       this.clearValue();
     } catch (error) {
-      this.setNavbar('CITY NOT FOUND');
-      console.log(this.navbar);
+      this.setResult('CITY NOT FOUND');
+      console.log(this.result);
       console.log(error);
     }
     this.setIsLoding(false);

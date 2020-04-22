@@ -10,12 +10,13 @@ import { appStore } from 'store/app';
 import { CurrentWeather } from 'components/CurrentWeather/index';
 import { DailyForecastList } from 'components/DailyForecastList/index';
 import { DescriptionCurrentWeather } from 'components/DescriptionCurrentWeather/index';
+import { Footer } from 'components/Footer';
 
 export const ResultDescription = observer(props => {
 
   const { 
     isLoding,
-    navbar,
+    result,
     successfulRequest
   } = appStore;
 
@@ -24,14 +25,15 @@ export const ResultDescription = observer(props => {
       { isLoding ? <ActivityIndicator size='small' color='#B5DDF5' /> :
         <View style={ styles.resultDescription }>
           { successfulRequest ?
-          <View>
-            <CurrentWeather />
-            <DescriptionCurrentWeather />
-            <DailyForecastList />
-          </View>
-             : <View style={ styles.err }>
-               <Text style={ styles.text }> { navbar } </Text>
-             </View>
+            <View>
+              <CurrentWeather />
+              <DescriptionCurrentWeather />
+              <DailyForecastList />
+              <Footer />
+            </View>
+              : <View style={ styles.err }>
+                  <Text style={ styles.text }> { result } </Text>
+                </View>
           }
         </View>
       }
@@ -62,8 +64,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    height: 40,
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
-    borderRadius: 5,
+    /*backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    borderRadius: 5,*/
   },
 }) 

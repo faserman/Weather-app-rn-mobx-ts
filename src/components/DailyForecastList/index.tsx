@@ -30,7 +30,7 @@ export const DailyForecastList = observer(props => {
 const styles = StyleSheet.create({
   container: {
     height: 145,
-    marginTop: 5,
+    marginTop: 25,
     borderRadius: 5,
   },
   list: {

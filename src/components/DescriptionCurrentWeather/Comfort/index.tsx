@@ -12,7 +12,7 @@ export const Comfort = observer(props => {
       <Text style={ styles.feelsLike }>Feels like: { 
         celsiusTempMode ? weather.celsiusFeelsLike : weather.fahrenheitFeelsLike 
         }</Text>
-      <Text style={ styles.pressure }>Pressure: { weather.pressureInMmhg }</Text>
+      <Text style={ styles.pressure }>Pressure: { weather.pressureInMmhg } Mmhg</Text>
       <Text style={ styles.humidity }>Humidity: { weather.humidity }</Text>
     </View>
   )

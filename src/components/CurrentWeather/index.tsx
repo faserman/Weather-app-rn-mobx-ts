@@ -12,13 +12,13 @@ export const CurrentWeather = observer(props => {
   const {
     weather, 
     celsiusTempMode,
-    navbar
+    result
   } = appStore;
 
   return(
     <View>
       <View style={ styles.currentWeather }>
-        <Text style={ styles.cityNameText }>{ navbar }</Text>
+        <Text style={ styles.cityNameText }>{ result }</Text>
         <Text style={ styles.dtText }>{ weather.dateTime }</Text>
           <Text style={ styles.currentTemp }>
             { celsiusTempMode ? weather.celsiusTemp : weather.fahrenheitTemp }&#176;
