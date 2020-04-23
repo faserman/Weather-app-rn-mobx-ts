@@ -1,8 +1,8 @@
 <h1>WeatherApp</h1>
 <p>
   WeatherApp is a responsive 
-  <a href="https://reactnative.dev/" rel="nofollow">React native</a>
-   loading data via 
+  <a href="https://reactnative.dev/" rel="nofollow">React native</a>,
+   app loading data via 
   <a href="https://openweathermap.org/api" rel="nofollow">OpenWeather Map API</a>
   .
 </p>
