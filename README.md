@@ -66,5 +66,3 @@
 </table>
 <h1>Author</h1>
 <a href="https://github.com/faserman" rel="nofollow">faserman</a>
-<h1>Self-perpetuating reviewer</h1>
-<a href="https://github.com/xandyn" rel="nofollow">Ruslan.V</a>
