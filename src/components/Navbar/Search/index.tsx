@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   search: {
     flexDirection: 'row',
     margin: 3,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
   },
   button: {
     alignItems: 'center',
@@ -59,7 +59,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.6)',
     borderRadius: 5,
     color: '#1E1E1E',
-    fontSize: 25
+    fontSize: 23,
+    borderBottomColor: '#B5DDF5',
+    borderStyle: 'solid',
+    borderBottomWidth: 1
   },
   image: {
     width: 30,

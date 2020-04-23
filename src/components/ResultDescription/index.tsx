@@ -15,14 +15,14 @@ import { Footer } from 'components/Footer';
 export const ResultDescription = observer(props => {
 
   const { 
-    isLoding,
+    isLoading,
     result,
     successfulRequest
   } = appStore;
 
   return(
     <View style={ styles.container }>
-      { isLoding ? <ActivityIndicator size='small' color='#B5DDF5' /> :
+      { isLoading ? <ActivityIndicator size='small' color='#B5DDF5' /> :
         <View style={ styles.resultDescription }>
           { successfulRequest ?
             <View>

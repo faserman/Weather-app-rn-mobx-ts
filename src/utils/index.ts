@@ -1,5 +1,5 @@
 class Utils {
-  setWeatherIcon(weatherDescription: string, size: string) {
+  getWeatherIconByDescription(weatherDescription: string, size: string) {
     let backgroundImage = "";
     switch (weatherDescription) {
       case "broken clouds":
@@ -58,7 +58,7 @@ class Utils {
     return backgroundImage
   };
 
-  setWindDirection(windDeg: number) {
+  getWindDirectionByDeg(windDeg: number) {
     const windDirection = (windDeg >= 0 && windDeg <= 20) ? "North" :
       (windDeg >= 21 && windDeg <= 70) ? "North-east" :
       (windDeg >= 71 && windDeg <= 110) ? "East" :
@@ -71,7 +71,7 @@ class Utils {
     return windDirection
   }
 
-  setWindVerbalDesignation(windForce: number) {
+  getWindVerbalDesignationByWindSpeed(windForce: number) {
     const verbalDesignation = (windForce >= 0 && windForce <= 0.2) ? "Calm wind" :
       (windForce >= 0.3 && windForce <= 1.5) ? "Quiet wind" :
       (windForce >= 1.6 && windForce <= 3.3) ? "Easy wind" :
@@ -88,7 +88,7 @@ class Utils {
     return verbalDesignation
   }
 
-  setDescriptionBackgroundImg(weatherDescription: string) {
+  getDescriptionBackgroundImg(weatherDescription: string) {
     let backgroundImage: string = "";
     switch (weatherDescription) {
       case "broken clouds":
@@ -153,7 +153,7 @@ class Utils {
     return backgroundImage
   }
 
-  /*setTempMode(temp: number, mode: boolean) {
+  /*getTempMode(temp: number, mode: boolean) {
     let result: number;
     if (mode === true) {
       result = temp;

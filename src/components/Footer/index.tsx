@@ -5,7 +5,7 @@ export const Footer = () => {
   return(
     <View style={ styles.container }>
       <Text style={ styles.text }>Faserman unLtd., 2020. All rights are missing.</Text>
-      <Text style={ styles.text }>SOURCE:</Text>
+      <Text style={ styles.text }>SOURCES:</Text>
       <Text style={ styles.text }>openweathermap.org, icons8.com, unsplash.com</Text>
       <Text style={ styles.textP }>Version: 0.6.7</Text>
       <Text style={ styles.textP }>The application was created with God's help, and not otherwise))</Text>

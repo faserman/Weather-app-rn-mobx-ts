@@ -2,7 +2,7 @@ import { utils } from '../utils/index';
 
 class BackgroundImgApi {
   getBackgroundImage(weatherDescription: string) {
-    const weatherDescriptionImage = utils.setDescriptionBackgroundImg(weatherDescription)
+    const weatherDescriptionImage = utils.getDescriptionBackgroundImg(weatherDescription)
     const backgroundImage = (`https://source.unsplash.com/720x1560/?nature,${ weatherDescriptionImage }`);
     return backgroundImage
   }

@@ -7,9 +7,9 @@ import { backgroundImgApi } from '../api/backgroundImgApi';
 import { dailyForecastApi } from '../api/dailyForecastApi';
 
 class AppStore {
-  @observable value: string = 'Ufa';
+  @observable value: string = '';
   @observable cityName: string = '';
-  @observable isLoding: boolean = false;
+  @observable isLoading: boolean = false;
   @observable weather: Weather | undefined;
   @observable dailyForecast: DailyForecast[] = [];
   @observable celsiusTempMode: boolean = true;
@@ -53,8 +53,8 @@ class AppStore {
   }
 
   @action
-  setIsLoding(mode: boolean) {
-    this.isLoding = mode;
+  setIsLoading(mode: boolean) {
+    this.isLoading = mode;
   }
 
   @action.bound
@@ -84,7 +84,7 @@ class AppStore {
   async gettingForecast() {
     this.clearData();
     this.setCityName();
-    this.setIsLoding(true);
+    this.setIsLoading(true);
     this.setSuccessfulRequest(false);
     try {
       const result = await locationApi.getLocation(this.cityName, this.apiKey);
@@ -102,7 +102,7 @@ class AppStore {
       console.log(this.result);
       console.log(error);
     }
-    this.setIsLoding(false);
+    this.setIsLoading(false);
   };
 }
 
