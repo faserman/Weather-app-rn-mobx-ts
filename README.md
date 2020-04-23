@@ -1,14 +1,12 @@
 <h1>WeatherApp</h1>
-<hr>
 <p>
   WeatherApp is a responsive 
   <a href="https://reactnative.dev/" rel="nofollow">React native</a>
    loading data via 
   <a href="https://openweathermap.org/api" rel="nofollow">OpenWeather Map API</a>
-   .
+  .
 </p>
 <h1>Demo</h1>
-<hr>
 <img src="images&demo/animation.gif">
 <h1>Screenshots</h1>
 <p>
@@ -67,5 +65,4 @@
   </tbody>
 </table>
 <h1>Author</h1>
-<hr>
 <a href="https://github.com/faserman" rel="nofollow">faserman</a>
